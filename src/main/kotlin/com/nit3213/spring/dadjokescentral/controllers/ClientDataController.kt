@@ -1,8 +1,6 @@
 package com.nit3213.spring.dadjokescentral.controllers
 
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api")
@@ -12,5 +10,15 @@ class ClientDataController {
     fun showTheParam(@PathVariable(required = false) number: Int): String {
 
         return "The number you shared is $number"
+    }
+
+    @RequestMapping("/query") //localhost:8080/api/query?author=Jacob
+    fun respondWithQuery(@RequestParam(required = false, defaultValue = "") author: String): String {
+        return "Author's name is $author"
+    }
+
+    @RequestMapping("/doublequery") //localhost:8080/api/doublequery?author=DavidFinch&location=Ireland
+    fun respondWithDoubleQuery(@RequestParam(required = false, defaultValue = "") author: String, location: String): String {
+        return "Author's name is $author and location is $location"
     }
 }
