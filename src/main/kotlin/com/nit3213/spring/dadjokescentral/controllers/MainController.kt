@@ -5,14 +5,12 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
+@RequestMapping("/api")
 class MainController {
 
-    @RequestMapping("/")
-    fun sayHello() = "Hello World"
+    @RequestMapping("")
+    fun sayHello() = "Hello World, Here's my documentaion."
 
-    @RequestMapping("/jokes")
-    fun sayAJoke() = "Hello, welcome to a world of jokes"
-
-    @RequestMapping("/authors")
-    fun returnAuthors() = "List of Authors"
+    @RequestMapping("/creators")
+    fun returnProjectCreators() = "Name 1, Name 2"
 }
